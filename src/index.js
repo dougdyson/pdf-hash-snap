@@ -7,9 +7,9 @@ module.exports.onRpcRequest = async ({ origin, request }) => {
           {
             prompt: `Hello, ${origin}!`,
             description:
-              'This custom confirmation is just for display purposes.',
+              'Doing some cool pre-interview coding.',
             textAreaContent:
-              'But you can edit the snap source code to make it do something, if you want to!',
+              'Meta Snaps is very cool indeed and will further enable support for w3 Dapps!',
           },
         ],
       });

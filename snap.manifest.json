@@ -1,13 +1,13 @@
 {
-  "version": "0.7.0",
-  "proposedName": "MetaMask Template Snap",
+  "version": "0.7.1",
   "description": "A MetaMask Snap template.",
+  "proposedName": "MetaMask Template Snap",
   "repository": {
     "type": "git",
     "url": "https://github.com/MetaMask/snap-template.git"
   },
   "source": {
-    "shasum": "W4FN/2A1mQSjjrO95MGptw7pr+UR8913AOIksoajQSo=",
+    "shasum": "hZ9ri+w5H1vYJqWlGIM6B5rFE2HZFKUmUwsJGu2/oqk=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -18,7 +18,8 @@
     }
   },
   "initialPermissions": {
-    "snap_confirm": {}
+    "snap_confirm": {},
+    "endowment:network-access": {}
   },
   "manifestVersion": "0.1"
 }
