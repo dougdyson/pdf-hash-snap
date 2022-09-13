@@ -7,7 +7,7 @@ module.exports.onRpcRequest = async ({ origin, request }) => {
           {
             prompt: `Hello, ${origin}!`,
             description:
-              'Doing some cool pre-interview coding.',
+              'Doing some pre-interview coding.',
             textAreaContent:
               'Meta Snaps is very cool indeed and will further enable support for w3 Dapps!',
           },
