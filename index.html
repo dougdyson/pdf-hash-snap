@@ -38,7 +38,7 @@
     sendButton.addEventListener('click', send)
 
     // here we get permissions to interact with and install the snap
-    <async function connect () {
+    async function connect () {
       console.log('Connecting to MetaMask...');
       await ethereum.request({
         method: 'wallet_enable',
@@ -46,7 +46,7 @@
           wallet_snap: { [snapId]: {} },
         }]
       })
-    }>
+    }
 
     // here we call the snap's "hello" method
     async function send () {
