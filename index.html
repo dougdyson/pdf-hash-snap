@@ -39,6 +39,7 @@
 
     // here we get permissions to interact with and install the snap
     async function connect () {
+      console.log('Connecting to MetaMask...');
       await ethereum.request({
         method: 'wallet_enable',
         params: [{
