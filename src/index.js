@@ -5,11 +5,11 @@ module.exports.onRpcRequest = async ({ origin, request }) => {
         method: 'snap_confirm',
         params: [
           {
-            prompt: `Hello, ${origin}!`,
+            prompt: `Signature Confirmation`,
             description:
-              'Doing some pre-interview coding.',
+              'Confirm document signature!',
             textAreaContent:
-              'Meta Snaps is very cool indeed and will further enable support for w3 Dapps!',
+              'Legal attestation...I confirm I have read and agree to all terms and conditions {document name} etc...',
           },
         ],
       });
