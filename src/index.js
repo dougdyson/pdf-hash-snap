@@ -9,7 +9,7 @@ module.exports.onRpcRequest = async ({ origin, request }) => {
             description:
               'Confirm document signature!',
             textAreaContent:
-              'Legal attestation...I confirm I have read and agree to all terms and conditions {document name} etc...',
+              'I confirm that I have read and agree to all terms and conditions of {document name} etc...',
           },
         ],
       });
