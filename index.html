@@ -16,6 +16,7 @@
       <summary>Instructions</summary>
       <ol>
         <li>Click "Connect" to connect your MetaMask wallet</li>
+        <li>Click "Choose file" to select PDF</li>
         <li>Click "Upload" to upload a PDF file</li>
         <li>Click "Sign" to sign PDF hash</li>
         <li>Verify/publish at <a href="https://etherscan.io/verifiedSignatures">https://etherscan.io/verifiedSignatures</a></li>
@@ -23,15 +24,24 @@
     </details>
     <br/>
 
-    <button class="connect">Connect</button>
-    <button class="upload">Upload</button>
-    <button class="sign">Sign</button>
+    <button type="button" id="btnConnect">Connect</button>
+    <br/>
+    <br/>
+    <input type="file" id="inpFIle">
+    <br/>
+    <br/>
+    <button type="button" id="upload">Upload</button>
+    <br/>
+    <br/>
+    <textarea style="width: 300px; height: 150px;" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+    <br/>
+    <button type="button" id="sign">Sign</button>
   </body>
 
   <script>
     const snapId = `local:${window.location.href}`;
 
-    const connectButton = document.querySelector('button.connect')
+    const connectButton = document.querySelector('button.btnConnect')
     const sendButton = document.querySelector('button.sendHello')
 
     connectButton.addEventListener('click', connect)
