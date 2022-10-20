@@ -5,12 +5,11 @@ body {
 .button {
   display: block;
   width: 108px;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .input {
   display: block;
-  margin-bottom: 1em;
 }
 
 .label {
@@ -24,6 +23,7 @@ body {
 }
 
 hr {
+  margin-top: 10px;
   width: 100%;
   color: grey;
 }
