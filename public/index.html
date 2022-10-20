@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Signer</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <h1>PDF Signer</h1>
+    <p>Upload and sign a hash of a PDF with your MetaMask wallet.</p>
+    <details>
+      <summary>Instructions</summary>
+      <ol>
+        <li>Click "Connect" to connect your MetaMask wallet</li>
+        <li>Click "Choose file" to select PDF</li>
+        <li>Click "Upload" to upload a PDF file</li>
+        <li>Click "Sign" to sign PDF hash</li>
+        <li>Verify at <a href="https://etherscan.io/verifiedSignatures">https://etherscan.io/verifiedSignatures</a></li>
+      </ol>
+    </details>
+    <br/>
+
+    <button type="button" class="button" id="btnConnect">Connect</button>
+    <input type="file" class="input" id="inpFIle">
+    <br/>
+    <button type="button" class="button" id="upload">Upload</button>
+    <textarea class="pdfText" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+    <br/>
+    <button type="button" class="button" id="sign">Sign</button>
+    <hr>
+    <br/>
+    <label class="label">Your address</label>
+    <br/>
+    <textarea id="addressResult" class="textareaResults" placeholder="Your address will appear here..."></textarea>
+    <label class="label">PDF hash (message)</label>
+    <br/>
+    <textarea id="pdfHashResult" class="textareaResults" placeholder="PDF hash will appear here..."></textarea>
+    <label class="label">Signature hash</label>
+    <br/>
+    <textarea id="sigHash" class="textareaResults" placeholder="Signature hash appears here..."></textarea>
+  </body>
+
+</html>
