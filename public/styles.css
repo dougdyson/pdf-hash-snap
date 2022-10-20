@@ -18,7 +18,8 @@ body {
 }
 
 .pdfText {
-  width: 340px;
+  width: 100%;
+  max-width: 480px;
   height: 150px;
 }
 
@@ -29,7 +30,8 @@ hr {
 
 .textareaResults {
   display: flex;
-  width: 340px;
+  width: 100%;
+  max-width: 480px;
   margin-bottom: 20px;
 }
 
