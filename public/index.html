@@ -25,7 +25,7 @@
     <br/>
 
     <button type="button" class="button" id="btnConnect">Connect</button>
-    <input type="file" class="input" id="inpFIle">
+    <input type="file" class="input" id="inpFile">
     <br/>
     <button type="button" class="button" id="btnUpload">Upload</button>
     <textarea class="pdfText" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
@@ -52,20 +52,28 @@
     const addressResult = document.getElementById('addressResult');
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
+
+    inpFile.addEventListener('change', (event) => {
+      const files = event.target.files;
+      // const file = inpFile.files[0];
+      console.log(files[0].name);
+      resultText.value = files[0].name;
+    });
+
     btnUpload.addEventListener("click", () => {
       const formData = new FormData();
       formData.append('pdfFile', `test data`);
+      // formData.append("pdfFile", inpFile.files[0]);
       
       fetch('/extract-text', {
         method: 'POST',
         body: formData,
       })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         resultText.value = data.text;
       }); 
 
-      // formData.append("pdfFile", inpFile.files[0]);
 
       // fetch("/extract-text", {
       //     method: "post",
