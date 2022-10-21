@@ -9,7 +9,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
 
 app.post('/extract-text', (req, res) => {
-  console.log('pdfFile:', req.body.pdfFile);
+  console.log('JS pdfFile:', req.body.pdfFile);
   res.send({ pdfFile: req.body.pdfFile });
 
   // if (!req.files && !req.files.pdfFile) {
