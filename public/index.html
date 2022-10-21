@@ -61,16 +61,17 @@
     });
 
     btnUpload.addEventListener("click", () => {
-      const formData = new FormData();
+      let formData = new FormData();
       formData.append("pdfFile", inpFile.files[0]);
 
-      console.log(formData.get("pdfFile"));
+      formData = (formData.get("pdfFile"));
+      console.log(formData);
       
       fetch('/extract-text', {
         method: 'POST',
         body: formData,
       })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         resultText.value = data.text;
       }); 
