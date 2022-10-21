@@ -27,9 +27,9 @@
     <button type="button" class="button" id="btnConnect">Connect</button>
     <input type="file" class="input" id="inpFIle">
     <br/>
-    <button type="button" class="button" id="upload">Upload</button>
+    <button type="button" class="button" id="btnUpload">Upload</button>
     <textarea class="pdfText" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
-    <button type="button" class="button" id="sign">Sign</button>
+    <button type="button" class="button" id="btnSign">Sign</button>
     <hr>
     <br/>
     <label class="label">Your address</label>
@@ -46,12 +46,36 @@
   <script>
     const btnConnect = document.getElementById('btnConnect');
     const inpFile = document.getElementById('inpFile');
-    const upload = document.getElementById('upload');
+    const btnUpload = document.getElementById('btnUpload');
     const resultText = document.getElementById('resultText');
-    const sign = document.getElementById('sign');
+    const btnSign = document.getElementById('btnSign');
     const addressResult = document.getElementById('addressResult');
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
+    btnUpload.addEventListener("click", () => {
+      const formData = new FormData();
+      formData.append('pdfFile', `test data`);
+      
+      fetch('/extract-text', {
+        method: 'POST',
+        body: formData,
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        resultText.value = data.text;
+      }); 
+
+      // formData.append("pdfFile", inpFile.files[0]);
+
+      // fetch("/extract-text", {
+      //     method: "post",
+      //     body: "route=extract-text",
+      // }).then(response => {
+      //     return response.text();
+      // }).then(extractedText => {
+      //     resultText.value = extractedText.trim();
+      // });
+    });
   </script>
 
 </html>
