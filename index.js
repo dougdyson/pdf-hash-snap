@@ -15,6 +15,7 @@ app.post('/extract-text', (req, res) => {
   }
 
   pdfParse(req.files.pdfFile).then((result) => {
+    // TODO: parse and append PDF meta data to response
     res.send(result.text);
   });
 });
