@@ -9,18 +9,15 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
 
 app.post('/extract-text', (req, res) => {
-  console.log('JS:');
-  console.log(req.body);
-  res.send(req.body);
+  if (!req.files && !req.files.pdfFile) {
+    console.log('No file uploaded');
+    res.status(400);
+    res.end();
+  }
 
-  // if (!req.files && !req.files.pdfFile) {
-  //   res.status(400);
-  //   res.end();
-  // }
-
-  // pdfParse(req.files.pdfFile).then((result) => {
-  //   res.send(result.text);
-  // });
+  pdfParse(req.files.pdfFile).then((result) => {
+    res.send(result.text);
+  });
 });
 
 app.listen(3000, () => {
