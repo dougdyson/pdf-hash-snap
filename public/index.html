@@ -27,7 +27,7 @@
     <button type="button" class="button" id="btnConnect">Connect</button>
     <input type="file" class="input" id="inpFile" name="inpFile">
     <br/>
-    <button type="button" class="button" id="btnUpload" name="btnUpload">Upload</button>
+    <button type="button" class="button" id="btnLoad" name="btnLoad">Upload</button>
     <textarea class="pdfText" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
     <button type="button" class="button" id="btnSign">Sign</button>
     <hr>
@@ -46,19 +46,14 @@
   <script>
     const btnConnect = document.getElementById('btnConnect');
     const inpFile = document.getElementById('inpFile');
-    const btnUpload = document.getElementById('btnUpload');
+    const btnLoad = document.getElementById('btnLoad');
     const resultText = document.getElementById('resultText');
     const btnSign = document.getElementById('btnSign');
     const addressResult = document.getElementById('addressResult');
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
 
-    // inpFile.addEventListener('change', (event) => {
-    //   const files = event.target.files;
-    //   resultText.value = files[0].name;
-    // });
-
-    btnUpload.addEventListener("click", () => {
+    btnLoad.addEventListener("click", () => {
       event.preventDefault();
 
       let fd = new FormData();
