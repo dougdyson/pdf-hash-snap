@@ -10,7 +10,6 @@ app.use(fileUpload());
 
 app.post('/extract-text', (req, res) => {
   if (!req.files && !req.files.pdfFile) {
-    console.log('No file uploaded');
     res.status(400);
     res.end();
   }
