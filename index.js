@@ -17,11 +17,10 @@ app.post('/extract-text', (req, res) => {
 
   pdfParse(req.files.pdfFile).then((result) => {
     // TODO: parse and append PDF meta data to response
-    console.log(result);
+    const { text } = result;
     const hash = keccak256(result.text).toString('hex');
-    console.log(hash);
     const extractedPDF = {
-      text: result.text,
+      text,
       hash,
     };
     res.send(extractedPDF);
