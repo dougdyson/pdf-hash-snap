@@ -55,6 +55,7 @@
     "express-fileupload": "^1.4.0",
     "keccak256": "^1.0.6",
     "nodemon": "^2.0.20",
-    "pdf-parse": "^1.1.1"
+    "pdf-parse": "^1.1.1",
+    "web3": "^1.8.0"
   }
 }
