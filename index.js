@@ -28,6 +28,10 @@ app.post('/extract-text', (req, res) => {
   });
 });
 
+// app.post('/sign', (req, res) => {
+  
+// });
+
 app.listen(3000, () => {
   console.log('Server started on port 3000');
 });
