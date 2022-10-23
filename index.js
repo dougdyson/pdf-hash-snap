@@ -3,6 +3,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const pdfParse = require('pdf-parse');
 const keccak256 = require('keccak256');
+const web3 = require('web3');
 
 const app = express();
 
