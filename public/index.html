@@ -44,6 +44,8 @@
   </body>
 
   <script>
+    const snapId = `local:${window.location.href}`;
+
     const btnConnect = document.getElementById('btnConnect');
     const inpFile = document.getElementById('inpFile');
     const btnLoad = document.getElementById('btnLoad');
@@ -52,6 +54,17 @@
     const addressResult = document.getElementById('addressResult');
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
+
+    btnConnect.addEventListener('click', connect)
+
+    async function connect () {
+      await ethereum.request({
+        method: 'wallet_enable',
+        params: [{
+          wallet_snap: { [snapId]: {} },
+        }]
+      })
+    }
 
     btnLoad.addEventListener("click", () => {
       event.preventDefault();
