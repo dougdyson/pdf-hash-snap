@@ -94,7 +94,9 @@
       })
       .then((response) => response.text())
       .then((data) => {
-        resultText.value = data;
+        data = JSON.parse(data);
+        resultText.value = data.text;
+        pdfHashResult.value = data.hash;
       }); 
     });
     
