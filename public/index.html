@@ -27,14 +27,14 @@
     <button type="button" class="button" id="btnConnect">Connect</button>
     <input type="file" class="input" id="inpFile" name="inpFile">
     <br/>
-    <button type="button" class="button" id="btnLoad" name="btnLoad">Upload</button>
+    <button type="button" class="button" id="btnUpload" name="btnUpload">Upload</button>
     <textarea class="pdfText" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
     <button type="button" class="button" id="btnSign">Sign</button>
     <hr>
     <br/>
     <label class="label">Your address</label>
     <br/>
-    <textarea id="addressResult" class="textareaResults" placeholder="Public address appears here...">0x9DA47B51E0AE896fbEaf0DCE7F14fFe11A8Dc618</textarea>
+    <textarea id="addressResult" class="textareaResults" placeholder="Public address appears here..."></textarea>
     <label class="label">PDF hash (message)</label>
     <br/>
     <textarea id="pdfHashResult" class="textareaResults" placeholder="PDF hash will appear here..."></textarea>
@@ -48,15 +48,27 @@
 
     const btnConnect = document.getElementById('btnConnect');
     const inpFile = document.getElementById('inpFile');
-    const btnLoad = document.getElementById('btnLoad');
+    const btnUpload = document.getElementById('btnUpload');
     const resultText = document.getElementById('resultText');
     const btnSign = document.getElementById('btnSign');
     const addressResult = document.getElementById('addressResult');
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
 
+    // get MetaMask wallet address
+    async function getPublicKey () {
+      const provider = window.ethereum;
+      const accounts = await provider.enable()
+      const encryptionPublicKey = await provider.request({
+        method: 'eth_getEncryptionPublicKey',
+        params: [accounts[0]]
+      })
+      
+      return encryptionPublicKey
+    }
+    // sign hash of PDF with MetaMask wallet
+    
     // get permissions to interact with and install the snap
-    btnConnect.addEventListener('click', connect)
     async function connect () {
       await ethereum.request({
         method: 'wallet_enable',
@@ -64,10 +76,13 @@
           wallet_snap: { [snapId]: {} },
         }]
       })
+      addressResult.value = await getPublicKey()
     }
-
+    
+    // connect to MetaMask wallet
+    btnConnect.addEventListener('click', connect)
     // upload and post pdf file to server to return text extraction
-    btnLoad.addEventListener("click", () => {
+    btnUpload.addEventListener("click", () => {
       event.preventDefault();
 
       let fd = new FormData();
@@ -82,6 +97,7 @@
         resultText.value = data;
       }); 
     });
+    
   </script>
 
 </html>

@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const pdfParse = require('pdf-parse');
+const keccak256 = require('keccak256')
 
 const app = express();
 
@@ -23,3 +24,22 @@ app.post('/extract-text', (req, res) => {
 app.listen(3000, () => {
   console.log('Server started on port 3000');
 });
+
+module.exports.onRpcRequest = async ({ origin, request }) => {
+  switch (request.method) {
+    case 'wallet_getAddress':
+      return wallet.request({
+        method: 'snap_confirm',
+        params: [
+          {
+            prompt: `Signature Confirmation`,
+            description: 'Confirm document signature!',
+            textAreaContent:
+              'I confirm that I have read and agree to all terms and conditions of {document name} etc...',
+          },
+        ],
+      });
+    default:
+      throw new Error('Method not found.');
+  }
+};
