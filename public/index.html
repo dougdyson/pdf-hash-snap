@@ -55,8 +55,8 @@
     const pdfHashResult = document.getElementById('pdfHashResult');
     const sigHash = document.getElementById('sigHash');
 
+    // get permissions to interact with and install the snap
     btnConnect.addEventListener('click', connect)
-
     async function connect () {
       await ethereum.request({
         method: 'wallet_enable',
@@ -66,6 +66,7 @@
       })
     }
 
+    // upload and post pdf file to server to return text extraction
     btnLoad.addEventListener("click", () => {
       event.preventDefault();
 
